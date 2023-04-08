@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+//View
+import 'productDetail.dart';
+
 //Model
 import 'Model/product.dart';
 
@@ -20,6 +23,15 @@ class _ProductListState extends State<ProductList> {
     setState(() {
       _products = ProductService.getProducts();
     });
+  }
+
+  void _navigateToProductDetails(BuildContext context, Product product) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => ProductDetails(product: product),
+      ),
+    );
   }
 
   @override
@@ -45,6 +57,7 @@ class _ProductListState extends State<ProductList> {
                       borderRadius: BorderRadius.circular(8.0),
                     ),
                     child: InkWell(
+                      onTap: () => _navigateToProductDetails(context, product),
                       child: Padding(
                         padding: EdgeInsets.all(16.0),
                         child: Column(
