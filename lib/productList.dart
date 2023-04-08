@@ -59,27 +59,6 @@ class _ProductListState extends State<ProductList> {
                                   fit: BoxFit.scaleDown,
                                 ),
                               ),
-                              // child: Container(
-                              //   margin: EdgeInsets.all(10),
-                              //   padding: EdgeInsets.all(5),
-                              //   // decoration: BoxDecoration(
-                              //   //   color: Colors.white,
-                              //   //   borderRadius: BorderRadius.circular(5.0),
-                              //   // ),
-                              //   child: Row(
-                              //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              //     children: [
-                              //       Text(
-                              //         '\$${product.price}',
-                              //         textAlign: TextAlign.right,
-                              //         style: TextStyle(
-                              //           fontSize: 16,
-                              //           fontWeight: FontWeight.w700,
-                              //         ),
-                              //       ),
-                              //     ],
-                              //   ),
-                              // ),
                             ),
                             SizedBox(height: 16.0),
                             Text(
@@ -97,35 +76,6 @@ class _ProductListState extends State<ProductList> {
                                 fontWeight: FontWeight.w700,
                               ),
                             ),
-                            // Row(
-                            //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            //   children: [
-                            //     Text(
-                            //       product.name,
-                            //       style: TextStyle(
-                            //         fontSize: 16,
-                            //         fontWeight: FontWeight.w700,
-                            //       ),
-                            //     ),
-                            //     Text(
-                            //       '\$${product.price}',
-                            //       style: TextStyle(
-                            //         fontSize: 16,
-                            //         fontWeight: FontWeight.w700,
-                            //       ),
-                            //     ),
-                            //   ],
-                            // ),
-                            // Text(
-                            //   product.description,
-                            //   maxLines: 2,
-                            //   overflow: TextOverflow.ellipsis,
-                            //   style: TextStyle(
-                            //     fontSize: 14,
-                            //     fontWeight: FontWeight.w400,
-                            //     color: Colors.black54,
-                            //   ),
-                            // ),
                             SizedBox(height: 5.0),
                             Container(
                               width: double.infinity,
