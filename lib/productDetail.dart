@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
 import 'Model/product.dart';
+import 'cart.dart';
 
 class ProductDetails extends StatelessWidget {
   final Product product;
+  final Cart cart;
 
-  const ProductDetails({Key? key, required this.product}) : super(key: key);
+  const ProductDetails({Key? key, required this.product, required this.cart}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -134,7 +136,15 @@ class ProductDetails extends StatelessWidget {
             Container(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  cart.addItem(product);
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text('${product.name} added to cart'),
+                      duration: Duration(seconds: 2),
+                    ),
+                  );
+                },
                 style: ElevatedButton.styleFrom(
                   primary: Colors.red,
                   shape: RoundedRectangleBorder(

@@ -23,11 +23,11 @@ class _ProductListState extends State<ProductList> {
     });
   }
 
-  void _navigateToProductDetails(BuildContext context, Product product) {
+  void _navigateToProductDetails(BuildContext context, Product product,Cart cart) {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => ProductDetails(product: product),
+        builder: (context) => ProductDetails(product: product, cart: _cart),
       ),
     );
   }
@@ -84,7 +84,7 @@ class _ProductListState extends State<ProductList> {
                       borderRadius: BorderRadius.circular(8.0),
                     ),
                     child: InkWell(
-                      onTap: () => _navigateToProductDetails(context, product),
+                      onTap: () => _navigateToProductDetails(context, product, _cart),
                       child: Padding(
                         padding: EdgeInsets.all(16.0),
                         child: Column(
