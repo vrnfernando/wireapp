@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 
-//View
 import 'productDetail.dart';
+import 'cartPage.dart';
+import 'cart.dart';
 
-//Model
-import 'Model/product.dart';
-
-//Network
 import 'Network/ProductService.dart';
+import 'Model/product.dart';
 
 class ProductList extends StatefulWidget {
   @override
@@ -34,11 +32,40 @@ class _ProductListState extends State<ProductList> {
     );
   }
 
+  final Cart _cart = Cart();
+
+  void _addProductToCart(Product product) {
+    setState(() {
+      _cart.addItem(product);
+    });
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text('${product.name} added to cart'),
+        duration: Duration(seconds: 2),
+      ),
+    );
+  }
+
+  void _goToCartPage() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (BuildContext context) => CartPage(cart: _cart),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Product List'),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.shopping_cart),
+            onPressed: _goToCartPage,
+          ),
+        ],
       ),
 
       body: Center(
@@ -93,7 +120,9 @@ class _ProductListState extends State<ProductList> {
                             Container(
                               width: double.infinity,
                               child: ElevatedButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  _addProductToCart(product);
+                                },
                                 style: ElevatedButton.styleFrom(
                                   primary: Colors.red,
                                   shape: RoundedRectangleBorder(
